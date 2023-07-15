@@ -28,5 +28,6 @@ services:
     working_dir: /var/www/html
     volumes:
       - ./.docker/apache:/etc/apache2//sites-enabled
+      - ./:/var/www/html
     ports:
       - "80:80"
