@@ -26,5 +26,7 @@ services:
       context: .docker/php
       dockerfile: Dockerfile
     working_dir: /var/www/html
+    volumes:
+      - ./.docker/apache:/etc/apache2//sites-enabled
     ports:
       - "80:80"
