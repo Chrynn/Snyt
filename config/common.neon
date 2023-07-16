@@ -12,3 +12,6 @@ di:
 	export:
 		parameters: no
 		tags: no
+
+includes:
+	- dibi.neon

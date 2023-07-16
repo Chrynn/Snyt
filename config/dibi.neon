@@ -1,0 +1,9 @@
+extensions:
+    dibi: Dibi\Bridges\Nette\DibiExtension22
+
+dibi:
+    host: snyt-mysql-1
+    username: snyt
+    password: snyt
+    database: snyt
+    lazy: true
