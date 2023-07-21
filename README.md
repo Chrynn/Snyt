@@ -42,6 +42,8 @@ database:
 
 - identify yourself to git
 
+> link your github/gitlab account
+
 ```
 git config --global user.name "Your name"
 ```
