@@ -10,4 +10,6 @@ RUN docker-php-ext-install \
     mysqli
 
 RUN apt-get update && apt-get -y install \
-    git
+    git \
+    unzip \
+    zip \

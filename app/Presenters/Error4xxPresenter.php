@@ -5,13 +5,21 @@ declare(strict_types=1);
 namespace App\Presenters;
 
 use Nette;
+use Nette\Application\BadRequestException;
 
+/**
+ * @property-read Nette\Bridges\ApplicationLatte\Template $template
+ * @property-read Nette\Application\Request               $request
+ */
 final class Error4xxPresenter extends Nette\Application\UI\Presenter
 {
+	/**
+	 * @throws BadRequestException
+	 */
 	public function startup(): void
 	{
 		parent::startup();
-		if (!$this->getRequest()->isMethod(Nette\Application\Request::FORWARD)) {
+		if (!$this->request->isMethod(Nette\Application\Request::FORWARD)) {
 			$this->error();
 		}
 	}
