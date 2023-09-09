@@ -2,8 +2,11 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
+// change with command 'export NODE_ENV=production'
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-    mode: 'development',
+    mode: devMode ? 'development' : 'production',
     entry: {
         bundle: path.resolve(__dirname, 'www/index.js')
     },
