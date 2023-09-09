@@ -17,7 +17,7 @@ services:
       ADMINER_PASSWORD: snyt
       ADMINER_DEFAULT_SERVER: mysql
     ports:
-      - "8080:8080"
+      - "1000:8080"
     depends_on:
       - mysql
 
@@ -31,3 +31,14 @@ services:
       - ./:/var/www/html
     ports:
       - "80:80"
+
+  node:
+    build:
+      context: .docker/node
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:8080"
+    command: [ "tail", "-f", "/dev/null" ]
