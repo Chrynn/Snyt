@@ -1,0 +1,57 @@
+@import 'style/variable';
+
+@import 'style/mixin/mixin';
+@import 'style/template/template';
+@import 'style/page/page';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  display: inline-block;
+}
+
+span {
+  display: block;
+}
+
+.container-inner {
+  height: 100%;
+  width: 85%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+.shader-soft {
+  background: $shader-soft;
+  height: 100%;
+  width: 100%;
+}
+
+.shader-strong {
+  background: $shader-strong;
+  height: 100%;
+  width: 100%;
+}
+
+.background-image-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+}
+
+.content-padding {
+  padding: 60px 0;
+}
+

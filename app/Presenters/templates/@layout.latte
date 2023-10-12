@@ -1,21 +1,28 @@
+{import 'header.latte'}
+{import 'footer.latte'}
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" href="dist/bundle.css">
+	<link rel="stylesheet" href="{$basePath}/dist/bundle.css">
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
 </head>
 
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
+	{include header}
+
 	{include content}
+
+	{include footer}
 
 	{block scripts}
 	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
-	<script src="dist/bundle.js"></script>
+	<script src="{$basePath}/dist/bundle.js"></script>
 	{/block}
 </body>
 </html>
