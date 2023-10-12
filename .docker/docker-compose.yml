@@ -23,22 +23,20 @@ services:
 
   php:
     build:
-      context: .docker/php
-      dockerfile: Dockerfile
+      dockerfile: php/Dockerfile
     working_dir: /var/www/html
     volumes:
-      - ./.docker/apache:/etc/apache2//sites-enabled
-      - ./:/var/www/html
+      - ./apache:/etc/apache2//sites-enabled
+      - ../:/var/www/html
     ports:
       - "80:80"
 
   node:
     build:
-      context: .docker/node
-      dockerfile: Dockerfile
+      dockerfile: node/Dockerfile
     working_dir: /var/www/html
     volumes:
-      - ./:/var/www/html
+      - ../:/var/www/html
     ports:
       - "8080:8080"
     command: [ "tail", "-f", "/dev/null" ]
