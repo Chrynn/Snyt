@@ -4,5 +4,6 @@
 config/local.neon
 www/assets/dist
 
+.docker/mysql/data
 vendor
 node_modules

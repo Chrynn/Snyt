@@ -22,7 +22,7 @@ docker-compse up -d
 
 - join php container
 ```
-docker exec -it snyt-php-1 bash
+docker composer exec php bash
 ```
 
 - install dependencies
@@ -49,4 +49,4 @@ git config --global user.name "Your name"
 git config --global user.email "you@example.com"
 ```
 
-- run `localhost:80` in your browser
+- run `localhost:8080` in your browser
