@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+
+  php:
+    image: jakubboucek/lamp-devstack-php:debug
+    environment:
+      # APACHE_DOCUMENT_ROOT: "/var/www/html/www"
+      APP_DEBUG: 1
+      TZ: Europe/Prague
+      PHP_IDE_CONFIG: "serverName=docker-cli"
+      XDEBUG_CONFIG: "client_host=host.docker.internal"
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: always
+    volumes:
+      - ".:/var/www/html"
+
+  mysql:
+    image: jakubboucek/lamp-devstack-mysql
+    environment:
+      MARIADB_DATABASE: snyt
+      MARIADB_USER: snyt
+      MARIADB_PASSWORD: snyt
+      MARIADB_ROOT_PASSWORD: root
+      TZ: Europe/Prague
+    restart: always
+    volumes:
+      - "./.docker/mysql/data:/var/lib/mysql"
+
+  adminer:
+    image: adminer
+    environment:
+      ADMINER_USERNAME: snyt
+      ADMINER_PASSWORD: snyt
+      ADMINER_DEFAULT_SERVER: mysql
+    ports:
+      - "1000:8080"
+
+  node:
+    build:
+      dockerfile: .docker/node/Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    command: [ "tail", "-f", "/dev/null" ]
