@@ -1,0 +1,19 @@
+.button-colored {
+  @include font-dark-thin-sans-serif;
+  padding: 15px 30px;
+  display: block;
+  margin: 0 auto;
+  background: $color-tertiary;
+  border-radius: 10px;
+  border: none;
+  font-size: $text-big;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: $transition-medium;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-tertiary-dark;
+    transition: $transition-medium;
+  }
+}

@@ -2,7 +2,7 @@
   "name": "snyt",
   "version": "1.0.0",
   "description": "website for restaurant with small CMS",
-  "main": "index.js",
+  "main": "main.ts",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch"
@@ -21,6 +21,8 @@
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   }

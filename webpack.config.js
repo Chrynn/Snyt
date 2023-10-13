@@ -9,7 +9,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
     mode: devMode ? 'development' : 'production',
     entry: {
-        bundle: path.resolve(__dirname, 'www/index.js')
+        bundle: path.resolve(__dirname, 'www/main.ts')
     },
     output: {
         path: path.resolve(__dirname, 'www/dist'),
@@ -25,6 +25,9 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({filename: '[name].css'}),
     ],
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     module: {
         rules: [
             {
@@ -44,7 +47,12 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 }
-            }
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
         ]
     },
 };
