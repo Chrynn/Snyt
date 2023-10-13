@@ -12,7 +12,7 @@ module.exports = {
         bundle: path.resolve(__dirname, 'www/main.ts')
     },
     output: {
-        path: path.resolve(__dirname, 'www/dist'),
+        path: path.resolve(__dirname, 'www/assets/dist'),
         filename: '[name].js',
     },
     optimization: {

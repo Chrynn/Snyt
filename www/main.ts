@@ -1,4 +1,4 @@
 import './main.scss';
 
-import './script/template/header';
-import './script/page/home';
+import './assets/script/template/header';
+import './assets/script/page/home';
