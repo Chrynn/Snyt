@@ -2,7 +2,7 @@
 .DS_Store
 
 config/local.neon
-www/dist
+www/assets/dist
 
 vendor
 node_modules
