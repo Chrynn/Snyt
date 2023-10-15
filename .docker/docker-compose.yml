@@ -2,6 +2,15 @@ version: "3.8"
 
 services:
 
+  php:
+    build:
+      dockerfile: php/Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ../:/var/www/html
+    ports:
+      - "80:80"
+
   mysql:
     image: mysql:8.0.29
     environment:
@@ -20,15 +29,6 @@ services:
       - "1000:8080"
     depends_on:
       - mysql
-
-  php:
-    build:
-      dockerfile: php/Dockerfile
-    working_dir: /var/www/html
-    volumes:
-      - ../:/var/www/html
-    ports:
-      - "80:80"
 
   node:
     build:
