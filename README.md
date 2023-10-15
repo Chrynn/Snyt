@@ -22,7 +22,7 @@ docker-compse up -d
 
 - join php container
 ```
-docker exec -it snyt-php-1 bash
+docker exec php bash
 ```
 
 - install dependencies
