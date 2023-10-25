@@ -77,30 +77,12 @@
         transition: $transition-medium;
       }
     }
-
-    &__button {
-      @include font-dark-thin-sans-serif;
-      padding: 10px 15px;
-      background: $color-tertiary;
-      border-radius: 10px;
-      border: none;
-      font-size: $text-medium;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: $transition-medium;
-      cursor: pointer;
-      margin: 5px 5px 5px 0;
-
-      &:hover {
-        background: $color-tertiary-dark;
-        transition: $transition-medium;
-      }
-    }
   }
 
   &__credit {
     background: $color-gray;
     padding: 20px 0;
+    position: relative;
 
     &__content {
         display: flex;

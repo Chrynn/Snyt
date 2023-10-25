@@ -1,0 +1,139 @@
+.menu {
+  &__content {
+    position: relative;
+  }
+
+  .background-image {
+    position: fixed;
+  }
+
+  &__topic {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0 50px 0;
+    text-align: center;
+  }
+
+  &__topic-heading {
+    @include font-light-thin-serif;
+    @include heading-medium;
+  }
+
+  &__topic-description {
+    @include font-colored-thin-sans-serif;
+    @include text-medium;
+    margin-top: 10px;
+  }
+
+  &__list-background {
+    background: $shader-softest;
+    padding: 40px 80px;
+    border-radius: 30px;
+  }
+
+  &__item {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__item-heading {
+    @include font-light-thin-serif;
+    @include text-big;
+  }
+
+  &__item-description-wrap {
+    padding-left: 40px;
+  }
+
+  &__item-heading-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__item-alergens {
+    @include font-colored-thin-sans-serif;
+    @include text-medium;
+    margin-left: 15px;
+  }
+
+  &__item-description {
+    @include font-light-thin-sans-serif;
+    @include text-medium;
+    font-style: italic;
+  }
+
+  &__item-price {
+    @include font-light-thin-serif;
+    @include text-big;
+    margin-right: 30px;
+  }
+
+  &__item-image-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-button-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-icon-cart {
+    height: 25px;
+    width: 25px;
+  }
+
+  &__tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+  }
+
+  &__tabs-list {
+    display: flex;
+  }
+
+  &__tabs-item {
+    @include font-light-thin-sans-serif;
+    @include text-medium;
+    background: $color-gray;
+    list-style: none;
+    padding: 10px 40px;
+    border-radius: 15px 15px 0 0;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    &--active {
+      @include font-dark-thin-sans-serif;
+      background: $color-tertiary-dark;
+    }
+  }
+
+  &__icon-fork-knife-wrap {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  &__icon-fork-knife {
+    width: 35px;
+    height: 35px;
+    fill: $color-secondary;
+  }
+}
