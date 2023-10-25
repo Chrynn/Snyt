@@ -1,22 +1,29 @@
-.article {
+.event {
   position: relative;
 
   .content-padding {
     padding-bottom: 74px;
   }
 
-  &__heading-wrap {
+  &__topic {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0 50px 0;
     text-align: center;
+
+    &--special {
+      margin-top: 0;
+    }
   }
 
-  &__heading {
+  &__topic-heading {
     @include font-light-thin-serif;
     @include heading-medium;
   }
 
-  &__description {
+  &__topic-description {
     @include font-colored-thin-sans-serif;
-    @include text-big;
+    @include text-medium;
     margin-top: 10px;
   }
 
@@ -29,10 +36,15 @@
   &__row {
     display: flex;
     justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
   }
 
   &__row-wrap {
     margin-top: 50px;
+    list-style: none;
   }
 
   &__column {
@@ -86,12 +98,12 @@
   }
 
   &__link:hover {
-    .article__text-block-wrap {
+    .event__text-block-wrap {
       bottom: 14px;
       transition: $transition-medium;
     }
 
-    .article__item-image {
+    .event__item-image {
       transform: scale(1.05);
       transition: $transition-medium;
     }
