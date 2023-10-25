@@ -1,0 +1,33 @@
+$color-primary: #000000;
+$color-secondary: #E6E6E6;
+$color-tertiary: #ffe669;
+
+$color-tertiary-light: #ffeca5;
+$color-tertiary-dark: #ffdd3c;
+
+$color-gray-light: #939393;
+$color-gray: #1c1c1c;
+$color-gray-dark: #0a0a0a;
+
+$color-orange-dark: #3f2c00;
+
+$font-primary: #000000;
+$font-secondary: #E6E6E6;
+
+$font-sans-serif: Dosis;
+$font-serif: Libre Baskerville;
+
+$text-big: 22px;
+$text-medium: 18px;
+$text-small: 16px;
+
+$heading-big: 34px;
+$heading-medium: 26px;
+
+$transition-medium: 0.25s;
+
+$shader-softest: rgba($color-primary, 0.4);
+$shader-soft: rgba($color-primary, 0.65);
+$shader-strong: rgba($color-primary, 0.75);
+$shader-stronger: rgba($color-primary, 0.9);
+$shader-strongest: rgba($color-primary, 0.95);

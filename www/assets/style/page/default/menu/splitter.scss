@@ -1,0 +1,23 @@
+.splitter-menu {
+  position: relative;
+
+  &__content {
+    position: relative;
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__icon-fence {
+    height: 80px;
+    width: 80px;
+    fill: $color-secondary;
+  }
+
+  &__text {
+    @include font-light-thin-sans-serif;
+    @include text-big;
+    margin-top: 10px;
+  }
+}

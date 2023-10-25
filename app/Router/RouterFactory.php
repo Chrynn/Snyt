@@ -13,8 +13,20 @@ final class RouterFactory
 
 	public static function createRouter(): RouteList
 	{
-		$router = new RouteList;
-		$router->addRoute('<presenter>/<action>[/<id>]', 'Home:default');
+		$routerAdmin = new RouteList("Admin");
+		$routerAdmin->addRoute('admin/<presenter>/<action>[/<id>]', 'Home:default');
+
+		$routerClient = new RouteList("Client");
+		$routerClient->addRoute('client/<presenter>/<action>[/<id>]', 'Home:default');
+
+		$routerUser = new RouteList("User");
+		$routerUser->addRoute('<presenter>/<action>[/<id>]', 'Home:default');
+
+		$router = new RouteList();
+		$router->add($routerAdmin);
+		$router->add($routerClient);
+		$router->add($routerUser);
+
 		return $router;
 	}
 }

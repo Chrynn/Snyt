@@ -1,0 +1,110 @@
+.footer {
+  &__main {
+    position: relative;
+
+    &__content {
+      position: relative;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &__column {
+      text-align: center;
+    }
+
+    &__list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    &__heading {
+        @include font-light-thin-serif;
+        @include text-big;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        @include font-light-thin-sans-serif;
+        @include text-medium;
+    }
+
+    &__text-big {
+      @include font-light-thin-serif;
+      @include text-medium;
+      color: $color-gray-light;
+    }
+
+    &__text-wrap {
+      margin: 30px 0;
+    }
+
+    &__text-sizer {
+      max-width: 300px;
+    }
+
+    &__form-wrap {
+      margin-top: 50px;
+      padding: 5px;
+      border: 1px solid $color-tertiary-light;
+      border-radius: 5px;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__input {
+      @include font-light-thin-sans-serif;
+      font-size: $text-medium;
+      background: transparent;
+      border: none;
+      padding: 10px 0;
+      outline: none;
+    }
+
+    &__label {
+      @include font-light-thin-sans-serif;
+      display: block;
+      width: 100%;
+      transition: $transition-medium;
+      cursor: pointer;
+
+      &:hover {
+        @include font-colored-thin-sans-serif;
+        transition: $transition-medium;
+      }
+    }
+  }
+
+  &__credit {
+    background: $color-gray;
+    padding: 20px 0;
+    position: relative;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__text {
+        @include font-light-thin-sans-serif;
+        @include text-medium;
+        color: $color-gray-light;
+    }
+
+    &__link {
+        @include font-light-thin-sans-serif;
+        @include text-medium;
+        text-decoration: none;
+        transition: $transition-medium;
+
+        &:hover {
+          color: $color-tertiary;
+          transition: $transition-medium;
+        }
+    }
+  }
+}
