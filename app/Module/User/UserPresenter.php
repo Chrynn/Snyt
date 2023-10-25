@@ -8,5 +8,4 @@ use App\Module\ModulePresenter;
 
 class UserPresenter extends ModulePresenter
 {
-
 }
