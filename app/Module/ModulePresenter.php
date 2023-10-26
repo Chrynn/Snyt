@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Module;
 
-use Nette\Application\UI\Presenter;
-
-class ModulePresenter extends Presenter
+class ModulePresenter extends BasePresenter
 {
 	public function findLayoutTemplateFile(): ?string
 	{
