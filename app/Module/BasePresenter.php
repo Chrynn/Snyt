@@ -6,6 +6,6 @@ namespace App\Module;
 
 use Nette\Application\UI\Presenter;
 
-class BasePresenter extends Presenter
+abstract class BasePresenter extends Presenter
 {
 }
