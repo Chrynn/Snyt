@@ -19,7 +19,7 @@
                 {snippet event}
                     <ul class="event__row-wrap">
                         <li class="event__row">
-                            {foreach $events as $event}
+                            {foreach $events as $key => $event}
                             <div class="event__column">
                                 <a href="#" class="event__link">
                                     <div class="event__item-image-wrap">
@@ -41,10 +41,12 @@
                                     </div>
                                 </a>
                             </div>
-                            {if ($iterator->counter % 3) === 0}
-                            </li>
-                            <li class="event__row">
-                            {/if}
+                        {var $isLastItemInRow = $iterator->counter % 3 === 0}
+                        {var $isEventToShow = array_key_last($events) !== $key}
+                        {if $isLastItemInRow && $isEventToShow}
+                        </li>
+                        <li class="event__row">
+                        {/if}
                             {/foreach}
                         </li>
                     </ul>
