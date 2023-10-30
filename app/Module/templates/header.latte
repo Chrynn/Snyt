@@ -8,11 +8,27 @@
             </a>
             <nav class="header__nav">
                 <ul>
-                    <li class="header__nav-item"><a n:href=":User:Menu:" class="header__nav-item-link">menu</a></li>
-                    <li class="header__nav-item"><a n:href=":User:Event:" class="header__nav-item-link">events</a></li>
-                    <li class="header__nav-item"><a href="#" class="header__nav-item-link">item</a></li>
-                    <li class="header__nav-item"><a href="#" class="header__nav-item-link">item</a></li>
-                    <li class="header__nav-item"><a href="#" class="header__nav-item-link">item</a></li>
+                    <li class="header__nav-item">
+                        <a
+                                n:href=":User:Menu:"
+                                class="header__nav-item-link{if $presenter->isLinkCurrent("Menu:*")} header__nav-item-link--active{/if}"
+                        >menu</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                                n:href=":User:Event:"
+                                class="header__nav-item-link{if $presenter->isLinkCurrent("Event:*")} header__nav-item-link--active{/if}"
+                        >events</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-item-link">item</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-item-link">item</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-item-link">item</a>
+                    </li>
                 </ul>
             </nav>
             <div class="header__nav-side">

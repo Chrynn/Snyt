@@ -1,9 +1,11 @@
 search:
 	-
-		in: %appDir%
+		in: %appDir%/Model
 		classes:
 			- *Factory
 			- *Facade
+			- *Repository
+			- *Service
 
 services:
 	- App\Router\RouterFactory::createRouter
