@@ -11,6 +11,14 @@ services:
     ports:
       - "80:80"
 
+  node:
+    build:
+      dockerfile: node/Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ../:/var/www/html
+    command: [ "tail", "-f", "/dev/null" ]
+
   mysql:
     image: mysql:8.0.29
     environment:
@@ -29,11 +37,3 @@ services:
       - "1000:8080"
     depends_on:
       - mysql
-
-  node:
-    build:
-      dockerfile: node/Dockerfile
-    working_dir: /var/www/html
-    volumes:
-      - ../:/var/www/html
-    command: [ "tail", "-f", "/dev/null" ]
