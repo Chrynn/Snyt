@@ -58,3 +58,29 @@
     transition: $transition-medium;
   }
 }
+
+.input-colored {
+
+}
+
+.input-secondary {
+  @include font-light-thin-sans-serif;
+  border: 1px solid $color-secondary;
+  background: transparent;
+  font-size: $text-big;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+  transition: $transition-medium;
+
+  &:focus {
+    border: 1px solid $color-tertiary;
+    transition: $transition-medium;
+  }
+}
+
+.label-required {
+  @include font-colored-thin-sans-serif;
+  margin-left: 3px;
+}

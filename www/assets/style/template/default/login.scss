@@ -1,0 +1,84 @@
+.login {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__block {
+    border-radius: 15px;
+    padding: 30px 30px 40px 30px;
+    background: $shader-stronger;
+    border: 1px solid $color-orange-dark;
+    width: 500px;
+  }
+
+  &__heading {
+     @include font-light-thin-sans-serif;
+     text-align: center;
+     font-size: $heading-big;
+     margin-bottom: 10px;
+  }
+
+  &__form-item:not(:last-child) {
+     margin-bottom: 20px;
+  }
+
+  &__label {
+    @include font-light-thin-sans-serif;
+    font-size: $text-medium;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: $transition-medium;
+    padding-left: 10px;
+
+    &:hover {
+      @include font-colored-thin-sans-serif;
+      transition: $transition-medium;
+    }
+  }
+
+  &__links {
+    margin-top: 15px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__register {
+    @include font-light-thin-sans-serif;
+    text-decoration: none;
+    font-size: $text-medium;
+    text-transform: uppercase;
+    transition: $transition-medium;
+
+    &:hover {
+      @include font-colored-thin-sans-serif;
+      transition: $transition-medium;
+    }
+  }
+
+  &__forgot {
+    @include font-light-thin-sans-serif;
+    font-size: $text-medium;
+    text-transform: uppercase;
+    transition: $transition-medium;
+    cursor: pointer;
+
+    &:hover {
+      @include font-colored-thin-sans-serif;
+      transition: $transition-medium;
+    }
+
+  }
+
+  &__label-wrap {
+     display: flex;
+  }
+
+  &__button-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+}

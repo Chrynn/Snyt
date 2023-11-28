@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Model\Repository;
 
-use App\Model\BaseRepository;
-
 class EventRepository extends BaseRepository
 {
 	private const TABLE = 'event';

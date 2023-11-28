@@ -18,3 +18,13 @@ export function headerScroll() {
 
 }
 headerScroll();
+
+export function showLogin() {
+    const iconUserDivClass = '.js-show-login';
+    const iconUserDiv = document.querySelector(iconUserDivClass);
+
+    iconUserDiv.addEventListener('click', () => {
+
+    });
+}
+showLogin();
