@@ -94,6 +94,11 @@
         transition: $transition-medium;
       }
     }
+
+    &--alternative {
+      display: inline-block;
+      cursor: pointer;
+    }
   }
 
   &__language-block {

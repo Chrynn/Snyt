@@ -65,9 +65,9 @@
 
 .input-secondary {
   @include font-light-thin-sans-serif;
-  border: 1px solid $color-secondary;
+  border: 1px solid $color-gray-light;
   background: transparent;
-  font-size: $text-big;
+  font-size: $text-medium;
   padding: 10px 20px;
   border-radius: 10px;
   width: 100%;

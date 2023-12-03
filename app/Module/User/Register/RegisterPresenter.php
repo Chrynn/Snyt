@@ -8,4 +8,8 @@ use App\Module\BasePresenter;
 
 class RegisterPresenter extends BasePresenter
 {
+	public function actionDefault(): void
+	{
+
+	}
 }

@@ -2,18 +2,36 @@
 
 namespace App\Module\_components\Login;
 
+use App\Model\Service\AuthorizationService;
 use App\Module\_components\BaseControl;
 use Nette\Application\UI\Form;
+use Nette\Security\AuthenticationException;
 
 class Login extends BaseControl
 {
+	public function __construct(
+		protected AuthorizationService $authorizationService
+	) {
+	}
+
 	protected function createComponentForm(): Form
 	{
 		$form = new Form();
-		$form->addText("email");
-		$form->addPassword("password");
+		$form->addEmail("email")->setRequired();
+		$form->addPassword("password")->setRequired();
+		$form->onSubmit[] = [$this, "handleLogin"];
 
 		return $form;
+	}
+
+	public function handleLogin(Form $form): void
+	{
+		try {
+			$values = $form->getValues();
+			$this->authorizationService->login($values->email, $values->password);
+		} catch (AuthenticationException) {
+			$form->addError('Nesprávný E-mail nebo heslo');
+		}
 	}
 
 	public function render(): void

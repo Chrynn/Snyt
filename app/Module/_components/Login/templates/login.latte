@@ -1,7 +1,13 @@
 <div class="login shader-softest">
     <div class="login__block">
+        <svg class="login__icon-cross">
+            <use xlink:href="{$basePath}/assets/image/icon/general.svg#icon-cross"></use>
+        </svg>
         <h1 class="login__heading">Login</h1>
         <form n:name="form">
+            <div class="login__message-box" n:foreach="$form->ownErrors as $error">
+                <span class="login__message login__message--active login__message--error">{$error}</span>
+            </div>
             <ul>
                 <li class="login__form-item">
                     <div class="login__label-wrap">
@@ -23,7 +29,7 @@
                 </li>
             </ul>
             <div class="login__links">
-                <a n:href=":User:Register:" class="login__register">Register</a>
+                <a href="{plink :User:Register:}" class="login__register">Register</a>
                 <span class="login__forgot">Forgot password</span>
             </div>
             <div class="login__button-wrap">

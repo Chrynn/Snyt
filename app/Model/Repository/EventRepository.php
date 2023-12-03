@@ -10,7 +10,7 @@ class EventRepository extends BaseRepository
 
 	public function findAll(): array
 	{
-		$result = $this->getDibiConnection()
+		$result = $this->dibi
 			->select('*')
 			->from(self::TABLE);
 
@@ -19,7 +19,7 @@ class EventRepository extends BaseRepository
 
 	public function getAllCount(): int
 	{
-		$result = $this->getDibiConnection()
+		$result = $this->dibi
 			->select('COUNT(id)')
 			->from(self::TABLE);
 
@@ -28,7 +28,7 @@ class EventRepository extends BaseRepository
 
 	public function findAllForPaginator(int $limit, int $offset): array
 	{
-		$result = $this->getDibiConnection()
+		$result = $this->dibi
 			->select('*')
 			->from(self::TABLE)
 			->limit($limit)
