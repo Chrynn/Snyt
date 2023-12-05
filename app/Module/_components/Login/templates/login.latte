@@ -4,37 +4,39 @@
             <use xlink:href="{$basePath}/assets/image/icon/general.svg#icon-cross"></use>
         </svg>
         <h1 class="login__heading">Login</h1>
-        <form n:name="form">
-            <div class="login__message-box" n:foreach="$form->ownErrors as $error">
-                <span class="login__message login__message--active login__message--error">{$error}</span>
-            </div>
-            <ul>
-                <li class="login__form-item">
-                    <div class="login__label-wrap">
-                        <label n:name="email" class="login__label">E-mail</label>
-                        <span class="login__required label-required">*</span>
-                    </div>
-                    <div>
-                        <input type="email" n:name="email" class="login__input input-secondary">
-                    </div>
-                </li>
-                <li class="login__form-item">
-                    <div class="login__label-wrap">
-                        <label n:name="password" class="login__label">Password</label>
-                        <span class="login__required label-required">*</span>
-                    </div>
-                    <div>
-                        <input type="password" n:name="password" class="login__input input-secondary">
-                    </div>
-                </li>
-            </ul>
-            <div class="login__links">
-                <a href="{plink :User:Register:}" class="login__register">Register</a>
-                <span class="login__forgot">Forgot password</span>
-            </div>
-            <div class="login__button-wrap">
-                <button class="login__button button-colored">Login</button>
-            </div>
-        </form>
+        {snippet login}
+            <form n:name="form" class="ajax">
+                <div class="login__message-box" n:foreach="$form->ownErrors as $error">
+                    <span class="login__message login__message--active login__message--error">{$error}</span>
+                </div>
+                <ul>
+                    <li class="login__form-item">
+                        <div class="login__label-wrap">
+                            <label n:name="email" class="login__label">E-mail</label>
+                            <span class="login__required label-required">*</span>
+                        </div>
+                        <div>
+                            <input type="email" n:name="email" class="login__input input-secondary">
+                        </div>
+                    </li>
+                    <li class="login__form-item">
+                        <div class="login__label-wrap">
+                            <label n:name="password" class="login__label">Password</label>
+                            <span class="login__required label-required">*</span>
+                        </div>
+                        <div>
+                            <input type="password" n:name="password" class="login__input input-secondary">
+                        </div>
+                    </li>
+                </ul>
+                <div class="login__links">
+                    <a href="{plink :User:Register:}" class="login__register">Register</a>
+                    <span class="login__forgot">Forgot password</span>
+                </div>
+                <div class="login__button-wrap">
+                    <button class="login__button button-colored">Login</button>
+                </div>
+            </form>
+        {/snippet}
     </div>
 </div>
