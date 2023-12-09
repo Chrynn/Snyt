@@ -15,3 +15,4 @@ di:
 
 includes:
 	- dibi.neon
+	- contributte.neon
