@@ -16,3 +16,4 @@ di:
 includes:
 	- dibi.neon
 	- contributte.neon
+	- nextras.neon
