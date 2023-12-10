@@ -4,35 +4,23 @@ declare(strict_types=1);
 
 namespace App\Model\Repository;
 
+use App\Model\Mapper\Event;
+
+/**
+ * @extends BaseRepository<Event>
+ */
 class EventRepository extends BaseRepository
 {
-	private const TABLE = 'event';
-
-	public function findAll(): array
-	{
-		$result = $this->dibi
-			->select('*')
-			->from(self::TABLE);
-
-		return $result->fetchAssoc('id');
-	}
-
-	public function getAllCount(): int
-	{
-		$result = $this->dibi
-			->select('COUNT(id)')
-			->from(self::TABLE);
-
-		return $result->fetchSingle();
-	}
-
 	public function findAllForPaginator(int $limit, int $offset): array
 	{
-		$result = $this->dibi
-			->select('*')
-			->from(self::TABLE)
-			->limit($limit)
-			->offset($offset);
+		$result = $this->dibi->query("
+            SELECT * FROM {$this->tableName}
+            LIMIT ?
+            OFFSET ?
+        ",
+            $limit,
+            $offset
+        );
 
 		return $result->fetchAssoc('id');
 	}

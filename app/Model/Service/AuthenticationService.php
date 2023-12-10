@@ -23,7 +23,7 @@ class AuthenticationService implements Authenticator
 	 */
 	public function authenticate(string $user, string $password): SimpleIdentity
 	{
-		$user = $this->userRepository->findOneBy('email', $user);
+		$user = $this->userRepository->findOneBy(['email' => $user]);
 
 		if (!$user) {
 			throw new AuthenticationException('Uzivatel nebyl nalezen');

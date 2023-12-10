@@ -29,9 +29,12 @@ class Login extends BaseControl
 		try {
 			$values = $form->getValues();
 			$this->authorizationService->login($values->email, $values->password);
-		} catch (AuthenticationException) {
-			$form->addError('Nesprávný E-mail nebo heslo');
-			$this->redrawControl("login");
+
+            $this->flashMessage('Login was successful');
+            $this->redirect('Profile:');
+		} catch (AuthenticationException $e) {
+			$form->addError($e->getMessage());
+            $this->redrawControl("login");
 		}
 	}
 

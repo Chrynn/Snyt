@@ -4,15 +4,24 @@ declare(strict_types=1);
 
 namespace App\Module\User\Event;
 
+use App\Model\Factory\LoginFactory;
 use App\Model\Repository\EventRepository;
+use App\Model\Service\AuthorizationService;
 use App\Module\User\UserPresenter;
 use Nette\Utils\Paginator;
 
 class EventPresenter extends UserPresenter
 {
-	public function __construct(protected EventRepository $eventRepository)
+	public function __construct(
+        protected EventRepository $eventRepository,
+        protected AuthorizationService $authorizationService,
+        protected LoginFactory $loginFactory,
+    )
 	{
-		parent::__construct();
+		parent::__construct(
+            $this->authorizationService,
+            $this->loginFactory
+        );
 	}
 
 	public function actionDefault(int $page = 1): void
