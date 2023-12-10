@@ -35,5 +35,7 @@ class EventPresenter extends UserPresenter
 
 		$this->template->events = $this->eventRepository->findAllForPaginator($paginator->getLength(), $paginator->getOffset());
 		$this->template->paginator = $paginator;
+
+        $this->redrawControl("event");
 	}
 }
