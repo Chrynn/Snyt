@@ -27,16 +27,18 @@ class LoginControl extends BaseControl
 
 	public function actionLogin(Form $form): void
 	{
-		try {
-			$values = $form->getValues();
-			$this->authorizationService->login($values->email, $values->password);
+        if ($this->presenter->isAjax() === true) {
+            try {
+                $values = $form->getValues();
+                $this->authorizationService->login($values->email, $values->password);
 
-            $this->flashMessage('LoginControl was successful');
-            $this->redirect('Profile:');
-		} catch (AuthenticationException $e) {
-			$form->addError($e->getMessage());
-            $this->redrawControl("login");
-		}
+                $this->flashMessage('LoginControl was successful');
+                $this->redirect('Profile:');
+            } catch (AuthenticationException $e) {
+                $form->addError($e->getMessage());
+                $this->redrawControl("login");
+            }
+        }
 	}
 
 	public function render(): void
