@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Module\_components\Login;
+namespace App\Module\components\Login;
 
 use App\Model\Service\AuthorizationService;
-use App\Module\_components\BaseControl;
+use App\Module\components\BaseControl;
 use Nette\Application\UI\Form;
 use Nette\Security\AuthenticationException;
 
-class Login extends BaseControl
+class LoginControl extends BaseControl
 {
 	public function __construct(
 		protected AuthorizationService $authorizationService
@@ -17,20 +17,21 @@ class Login extends BaseControl
 	protected function createComponentForm(): Form
 	{
 		$form = new Form();
-		$form->addEmail("email")->setRequired();
-		$form->addPassword("password")->setRequired();
-		$form->onSubmit[] = [$this, "handleLogin"];
+		$form->addEmail('email')->setRequired();
+		$form->addPassword('password')->setRequired();
+        $form->addSubmit('submit');
+		$form->onSubmit[] = [$this, 'actionLogin'];
 
 		return $form;
 	}
 
-	public function handleLogin(Form $form): void
+	public function actionLogin(Form $form): void
 	{
 		try {
 			$values = $form->getValues();
 			$this->authorizationService->login($values->email, $values->password);
 
-            $this->flashMessage('Login was successful');
+            $this->flashMessage('LoginControl was successful');
             $this->redirect('Profile:');
 		} catch (AuthenticationException $e) {
 			$form->addError($e->getMessage());

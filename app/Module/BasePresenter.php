@@ -6,7 +6,7 @@ namespace App\Module;
 
 use App\Model\Factory\LoginFactory;
 use App\Model\Service\AuthorizationService;
-use App\Module\_components\Login\Login;
+use App\Module\components\Login\LoginControl;
 use Nette\Application\UI\Presenter;
 use Nette\Bridges\ApplicationLatte\Template;
 use stdClass;
@@ -29,13 +29,13 @@ class BasePresenter extends Presenter
 		$this->template->isLogged = $this->authorizationService->isLoggedIn();
 	}
 
-	protected function createComponentLogin(): Login
+	protected function createComponentLogin(): LoginControl
 	{
 		return $this->loginFactory->create();
 	}
 
 	public function findLayoutTemplateFile(): ?string
 	{
-		return __DIR__ . '/_templates/@layout.latte';
+		return __DIR__ . '/templates/@layout.latte';
 	}
 }

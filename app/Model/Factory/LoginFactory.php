@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Model\Factory;
 
-use App\Module\_components\Login\Login;
+use App\Module\components\Login\LoginControl;
 
 interface LoginFactory
 {
-	public function create(): Login;
+	public function create(): LoginControl;
 }
