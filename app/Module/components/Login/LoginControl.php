@@ -5,6 +5,7 @@ namespace App\Module\components\Login;
 use App\Model\Service\AuthorizationService;
 use App\Module\components\BaseControl;
 use Nette\Application\UI\Form;
+use Nette\Neon\Exception;
 use Nette\Security\AuthenticationException;
 
 class LoginControl extends BaseControl
@@ -18,7 +19,7 @@ class LoginControl extends BaseControl
 	{
 		$form = new Form();
 		$form->addEmail('email')->setRequired();
-		$form->addPassword('password')->setRequired();
+		$form->addPassword('password')->setRequired('test');
         $form->addSubmit('submit');
 		$form->onSubmit[] = [$this, 'actionLogin'];
 

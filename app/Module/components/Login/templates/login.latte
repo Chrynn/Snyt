@@ -17,6 +17,7 @@
                         </div>
                         <div>
                             <input type="email" n:name="email" class="login__input input-secondary">
+                            <span n:ifcontent>{inputError email}</span>
                         </div>
                     </li>
                     <li class="login__form-item">
@@ -26,6 +27,7 @@
                         </div>
                         <div>
                             <input type="password" n:name="password" class="login__input input-secondary">
+                            <span n:ifcontent>{inputError password}</span>
                         </div>
                     </li>
                 </ul>
