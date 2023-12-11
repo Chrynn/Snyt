@@ -3,8 +3,9 @@ init\:env:
 	cd config && touch local.neon
 	make up
 	docker compose -f .docker/docker-compose.yml exec php composer install
-	docker compose -f .docker/docker-compose.yml exec node npm install
 	docker compose -f .docker/docker-compose.yml exec php bin/console migration:reset
+	docker compose -f .docker/docker-compose.yml exec node npm install
+	docker compose -f .docker/docker-compose.yml exec node npm run build
 
 # run containers scripts
 up:
