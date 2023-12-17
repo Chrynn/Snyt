@@ -1,5 +1,7 @@
 {varType Nette\Utils\Paginator $paginator}
-{varType array $events}
+{varType object $iterator}
+{varType array[App\Module\User\Event] $events}
+{varType string $basePath}
 {block event}
 
 <div class="event">
@@ -41,12 +43,12 @@
                                     </div>
                                 </a>
                             </div>
-                        {var $isLastItemInRow = $iterator->counter % 3 === 0}
-                        {var $isEventToShow = array_key_last($events) !== $key}
-                        {if $isLastItemInRow && $isEventToShow}
+                            {var $isLastItemInRow = $iterator->counter % 3 === 0}
+                            {var $isEventToShow = array_key_last($events) !== $key}
+                            {if $isLastItemInRow && $isEventToShow}
                         </li>
                         <li class="event__row">
-                        {/if}
+                            {/if}
                             {/foreach}
                         </li>
                     </ul>
@@ -55,7 +57,7 @@
                         {var $iamOnLastPage = $paginator->isLast()}
                         {var $currentPage = $paginator->getPage()}
                         {var $pageCount = $paginator->getPageCount()}
-                        <a n:href="default, $currentPage - 1" class="event__paginator__arrow-link{if $iamOnFirstPage} disabled{/if}">
+                        <a n:href="changePage! page: $currentPage - 1" class="event__paginator__arrow-link{if $iamOnFirstPage} disabled{/if} ajax">
                             <svg class="event__paginator__arrow event__paginator__arrow--left">
                                 <use xlink:href="{$basePath}/assets/image/icon/general.svg#icon-arrow-dropdown-thin"></use>
                             </svg>
@@ -66,55 +68,55 @@
                             {var $areMoreThanTwoPagesBeforeMe = ($pageCount - $currentPage) > 2}
                             {var $iamNotOnLastOrOneBeforeLastPage = !$iamOnLastPage && ($currentPage !== ($pageCount - 1))}
 
-                            {if !$iamOnFirstOrSecondPage}
+                        {if !$iamOnFirstOrSecondPage}
                                 <li class="event__paginator__item">
-                                    <a n:href="default, 1" class="event__paginator__item-link ajax">
+                                    <a n:href="changePage! page: 1" class="event__paginator__item-link ajax">
                                         <span class="event__paginator__item-number">1</span>
                                     </a>
                                 </li>
                             {/if}
 
-                            {if $iamOnMoreThanThirdPage}
+                        {if $iamOnMoreThanThirdPage}
                                 <li class="event__paginator__item event__paginator__item--special">
                                     <span class="event__paginator__item-number">...</span>
                                 </li>
                             {/if}
 
-                            {if !$iamOnFirstPage}
+                        {if !$iamOnFirstPage}
                                 <li class="event__paginator__item">
-                                    <a n:href="default, $currentPage - 1" class="event__paginator__item-link ajax">
+                                    <a n:href="changePage! page: $currentPage - 1" class="event__paginator__item-link ajax">
                                         <span class="event__paginator__item-number">{$currentPage - 1}</span>
                                     </a>
                                 </li>
                             {/if}
 
-                            <li class="event__paginator__item event__paginator__item--current">
-                                <span class="event__paginator__item-number">{$currentPage}</span>
-                            </li>
+                        <li class="event__paginator__item event__paginator__item--current">
+                                    <span class="event__paginator__item-number">{$currentPage}</span>
+                        </li>
 
-                            {if !$iamOnLastPage}
+                        {if !$iamOnLastPage}
                                 <li class="event__paginator__item">
-                                    <a n:href="default, $currentPage + 1" class="event__paginator__item-link">
+                                    <a n:href="changePage! page: $currentPage + 1" class="event__paginator__item-link ajax">
                                         <span class="event__paginator__item-number">{$currentPage + 1}</span>
                                     </a>
                                 </li>
                             {/if}
 
-                            {if $areMoreThanTwoPagesBeforeMe}
+                        {if $areMoreThanTwoPagesBeforeMe}
                                 <li class="event__paginator__item event__paginator__item--special">
                                     <span class="event__paginator__item-number">...</span>
                                 </li>
                             {/if}
 
-                            {if $iamNotOnLastOrOneBeforeLastPage}
+                        {if $iamNotOnLastOrOneBeforeLastPage}
                                 <li class="event__paginator__item">
-                                    <a n:href="default, $pageCount" class="event__paginator__item-link ajax">
+                                    <a n:href="changePage! page: $pageCount" class="event__paginator__item-link ajax">
                                         <span class="event__paginator__item-number">{$pageCount}</span>
                                     </a>
                                 </li>
                             {/if}
                         </ul>
-                        <a n:href="default, $currentPage + 1" class="event__paginator__arrow-link{if $iamOnLastPage} disabled{/if} ajax">
+                        <a n:href="changePage! page: $currentPage + 1" class="event__paginator__arrow-link{if $iamOnLastPage} disabled{/if} ajax">
                             <svg class="event__paginator__arrow event__paginator__arrow--right">
                                 <use xlink:href="{$basePath}/assets/image/icon/general.svg#icon-arrow-dropdown-thin"></use>
                             </svg>

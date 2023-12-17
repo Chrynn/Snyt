@@ -25,6 +25,12 @@ span {
   max-width: 1200px;
 }
 
+.shader-softest {
+  background: $shader-softest;
+  height: 100%;
+  width: 100%;
+}
+
 .shader-soft {
   background: $shader-soft;
   height: 100%;
@@ -65,3 +71,6 @@ span {
   cursor: default;
 }
 
+.scroll-disabled {
+  overflow-y: hidden;
+}

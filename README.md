@@ -1,34 +1,19 @@
-# Snyt
+## Snyt
 
-website for restaurant with small CMS
+Website for restaurant with small CMS
 
-> more tech-info find in project's Wiki (tab in Github repository)
+### Used technology
 
-## Start project
+- `Layouts` are designed in Adobe XDesign
+- `Devops` is runned by [Docker](https://www.docker.com/) & Apache virtual server
+- `Frontend` is coded in HTML stylesheet [Latte](https://latte.nette.org/cs/)
+- `Backend` is programmed in [PHP](https://www.php.net/) framework [Nette](https://nette.org/cs/)
+- `Database` is build by MYSQL with [Adminer](https://www.adminer.org/cs/) interface & [Dibi](https://dibiphp.com/cs/) (database layer)
 
-- start containers
+### Start project
+
+Run this command in Terminal & open `localhost:80` in Browser
+
 ```
-docker-compse up -d
+make init:env
 ```
-
-- join php container
-```
-docker exec php bash
-```
-
-- install dependencies
-```
-composer install
-```
-
-- add `local.neon` file to `config` folder
-```neon
-parameters:
-
-database:
-    dsn: 'mysql:host=127.0.0.1;dbname=test'
-    user:
-    password:
-```
-
-- run `localhost:80` in your browser

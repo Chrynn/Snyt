@@ -1,0 +1,119 @@
+.login {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: $transition-medium;
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__block {
+    border-radius: 15px;
+    padding: 30px 30px 40px 30px;
+    background: $shader-stronger;
+    border: 1px solid $color-orange-dark;
+    width: 500px;
+    position: relative;
+  }
+
+  &__heading {
+     @include font-light-thin-sans-serif;
+     text-align: center;
+     font-size: $heading-big;
+     margin-bottom: 10px;
+  }
+
+  &__form-item:not(:last-child) {
+     margin-bottom: 20px;
+  }
+
+  &__label {
+    @include font-light-thin-sans-serif;
+    font-size: $text-medium;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: $transition-medium;
+    padding-left: 10px;
+
+    &:hover {
+      @include font-colored-thin-sans-serif;
+      transition: $transition-medium;
+    }
+  }
+
+  &__links {
+    margin-top: 15px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__register {
+    @include font-light-thin-sans-serif;
+    text-decoration: none;
+    font-size: $text-medium;
+    text-transform: uppercase;
+    transition: $transition-medium;
+
+    &:hover {
+      @include font-colored-thin-sans-serif;
+      transition: $transition-medium;
+    }
+  }
+
+  &__forgot {
+    @include font-light-thin-sans-serif;
+    font-size: $text-medium;
+    text-transform: uppercase;
+    transition: $transition-medium;
+    cursor: pointer;
+
+    &:hover {
+      @include font-colored-thin-sans-serif;
+      transition: $transition-medium;
+    }
+  }
+
+  &__icon-cross {
+     position: absolute;
+     top: 30px;
+     right: 30px;
+     fill: $color-secondary;
+     width: 20px;
+     height: 20px;
+     cursor: pointer;
+     transition: $transition-medium;
+
+     &:hover{
+       fill: $color-tertiary;
+       transition: $transition-medium;
+    }
+  }
+
+  &__label-wrap {
+     display: flex;
+  }
+
+  &__button-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  &__message {
+    @include font-light-thin-sans-serif;
+    margin: 20px 0 10px 0;
+    text-align: center;
+    font-size: $text-medium;
+
+    &--error {
+      color: $color-red-light;
+    }
+  }
+}

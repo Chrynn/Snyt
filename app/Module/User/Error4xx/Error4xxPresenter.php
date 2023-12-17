@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Module\User\Error4xx;
 
+use App\Module\BasePresenter;
 use Nette;
 
-final class Error4xxPresenter extends Nette\Application\UI\Presenter
+final class Error4xxPresenter extends BasePresenter
 {
 	public function startup(): void
 	{

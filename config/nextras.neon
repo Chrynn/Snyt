@@ -1,0 +1,13 @@
+extensions:
+    migrations: Nextras\Migrations\Bridges\NetteDI\MigrationsExtension
+
+migrations:
+    dir: %appDir%/../migrations
+    driver: mysql
+    dbal: dibi
+    withDummyData: %debugMode%
+
+# commands:
+# - migrations:create
+# - migrations:continue
+# - migrations:reset (never run on prod - data loss, use continue)

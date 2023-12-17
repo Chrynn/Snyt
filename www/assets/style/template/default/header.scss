@@ -2,7 +2,7 @@
   width: 100%;
   padding: 15px 0;
   position: fixed;
-  z-index: 10;
+  z-index: 2;
   transition: $transition-medium;
 
   &--active {
@@ -93,6 +93,11 @@
         fill: $color-tertiary;
         transition: $transition-medium;
       }
+    }
+
+    &--alternative {
+      display: inline-block;
+      cursor: pointer;
     }
   }
 

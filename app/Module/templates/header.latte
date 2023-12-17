@@ -1,5 +1,9 @@
 {block header}
 
+{varType bool $isLogged}
+
+{control login}
+
 <header class="header">
     <div class="container-inner">
         <div class="header__wrap">
@@ -53,11 +57,19 @@
                 <div class="header__nav-side-block">
                     <ul>
                         <li class="header__nav-side-item">
-                            <a href="#" class="header__nav-side-link">
-                                <svg class="header__icon-user">
-                                    <use xlink:href="{$basePath}/assets/image/icon/general.svg#icon-user"></use>
-                                </svg>
-                            </a>
+                            {if !$isLogged}
+                                <div class="header__nav-side-link header__nav-side-link--alternative js-show-login">
+                                    <svg class="header__icon-user">
+                                        <use xlink:href="{$basePath}/assets/image/icon/general.svg#icon-user"></use>
+                                    </svg>
+                                </div>
+                            {else}
+                                <a href="#" class="header__nav-side-link">
+                                    <svg class="header__icon-user">
+                                        <use xlink:href="{$basePath}/assets/image/icon/general.svg#icon-user"></use>
+                                    </svg>
+                                </a>
+                            {/if}
                         </li>
                         <li class="header__nav-side-item">
                             <a href="#" class="header__nav-side-link">

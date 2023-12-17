@@ -19,7 +19,9 @@
 		"nette/utils": "^4.0",
 		"latte/latte": "^3.0",
 		"tracy/tracy": "^2.9",
-		"dibi/dibi": "^4.2"
+		"dibi/dibi": "^4.2",
+		"contributte/console": "^0.9.3",
+		"nextras/migrations": "^3.2"
 	},
 	"require-dev": {
 		"nette/tester": "^2.4",
