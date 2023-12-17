@@ -28,7 +28,7 @@ class LoginControl extends BaseControl
 
 	public function actionLogin(Form $form): void
 	{
-        if ($this->presenter->isAjax() === true) {
+        if ($this->presenter->isAjax()) {
             try {
                 $values = $form->getValues();
                 $this->authorizationService->login($values->email, $values->password);

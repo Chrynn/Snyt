@@ -44,7 +44,7 @@ class EventPresenter extends UserPresenter
 
 	public function handleChangePage(int $page = 1): void
 	{
-		if ($this->isAjax() === true) {
+		if ($this->isAjax()) {
 			$this->paginator->setPage($page);
 
 			$this->template->paginator = $this->paginator;
