@@ -12,6 +12,8 @@ use Nette\Utils\Paginator;
 
 class EventPresenter extends UserPresenter
 {
+	private Paginator $paginator;
+
 	public function __construct(
         protected EventRepository $eventRepository,
         protected AuthorizationService $authorizationService,
@@ -32,10 +34,23 @@ class EventPresenter extends UserPresenter
 		$paginator->setItemCount($eventAllCount);
 		$paginator->setItemsPerPage(6);
 		$paginator->setPage($page);
+		$this->paginator = $paginator;
 
 		$this->template->events = $this->eventRepository->findAllForPaginator($paginator->getLength(), $paginator->getOffset());
 		$this->template->paginator = $paginator;
 
         $this->redrawControl("event");
+	}
+
+	public function handleChangePage(int $page = 1): void
+	{
+		if ($this->isAjax() === true) {
+			$this->paginator->setPage($page);
+
+			$this->template->paginator = $this->paginator;
+			$this->template->events = $this->eventRepository->findAllForPaginator($this->paginator->getLength(), $this->paginator->getOffset());
+
+			$this->redrawControl("event");
+		}
 	}
 }
